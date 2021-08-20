@@ -1,0 +1,54 @@
+#二分查找
+
+
+def bitfind(a,b):
+    
+    low=0
+    high=len(a)-1
+    c=(low+high)/2
+    mid=int(c)
+    
+    while low <= high and a[int(mid)] != b :
+        if a[int(mid)] > b:
+            high=mid - 1
+            c=(low+high)/2
+            mid=int(c)
+        else:
+            low = mid + 1
+            c=(low+high)/2
+            mid=int(c)
+    if low <= high:
+        return int(mid)
+    else:
+        return -1
+
+a=[1,2,3,4,5,6,7,8,9]
+b=0
+c= bitfind(a,b)
+c
+
+
+
+#下一个更大的数
+num2=[1,6,7,4,3]
+num1=[3,1]
+
+def fiall(num1,num2):
+    i=0
+    a=[]
+    while i < len(num1):
+        print(1)
+        
+        j=bitfind(num2,num1[i])
+        if j+1 < len(num2) and num2[j+1] > num1[i]:
+            c=num2[j+1]
+            a.append(c)
+            
+        else:
+            a.append(-1)
+        i=i+1
+    return a
+
+a=fiall(num1,num2)
+a
+
